@@ -41,3 +41,25 @@ def int_to_hexa(n : int):
 
     return hexa_number
 
+def int_to_octal(n : int):
+    octal_digits = []
+    result = 8
+    while result >= 8:
+        result = n // 8
+        rest = n % 8
+        octal_digits.append(rest)
+        n = result
+
+    octal_digits.append(result)
+
+    octal_number = 0
+    for char in octal_digits[::-1]:
+        if char <= 7 and char != 0:
+            octal_number *= 10
+            octal_number += char
+        else:
+            octal_number *= 10
+    
+    return octal_number
+
+
